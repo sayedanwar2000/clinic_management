@@ -9,7 +9,7 @@
         https://www.linkedin.com/in/sayed-anwar-3485081b2/
         https://www.linkedin.com/in/bassant-abdelraouf-04a1b0231/
         """,
-    'depends': ['base', 'mail', 'account', 'stock', 'purchase', 'hr'],
+    'depends': ['base', 'mail', 'account', 'stock', 'hr'],
     'description': """
         This module provides a complete clinic management solution including:
         

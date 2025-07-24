@@ -3,3 +3,4 @@ access_dental_appointment,dental.appointment,model_dental_appointment,,1,1,1,1
 access_clinic_patient,access.clinic_patient,model_clinic_patient,,1,1,1,1
 access_medical_treatment_plan,access.medical_treatment_plan,model_medical_treatment_plan,,1,1,1,1
 access_treatment_step,access.treatment_step,model_treatment_step,,1,1,1,1
+

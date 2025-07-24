@@ -9,7 +9,6 @@ This module helps clinics manage patients, appointments, treatments, billing, in
 
 ### 🗓 Appointment Management
 - Schedule, reschedule, or cancel appointments easily
-- Send automatic email/SMS reminders to reduce no-shows
 
 ### 👨‍⚕️ Patient Management
 - Store patient records including medical history and allergies

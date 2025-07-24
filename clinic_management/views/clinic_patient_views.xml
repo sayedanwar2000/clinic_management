@@ -18,6 +18,7 @@
                         <group string="Image">
                             <field name="image_1920" widget="image" class="oe_avatar"/>
                         </group>
+                      
                         <group string="Address Information">
                             <field name="country_id"/>
                             <field name="state_id"/>
@@ -26,6 +27,7 @@
                             <field name="street2"/>
                             <field name="zip"/>
                         </group>
+
                         <group string="Contact">
                             <field name="phone"/>
                             <field name="email"/>
