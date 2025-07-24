@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+        <!-- Root Menu -->
+        <menuitem
+            id="clinic_root_menu"
+            name="Dental Clinic"
+            sequence="1"
+        />
+
+        <!-- Submenu under Root -->
+        <menuitem
+            id="menu_medical_root"
+            name="Medical"
+            parent="clinic_root_menu"
+            sequence="10"
+        />
+
+        <!-- Submenu under Root -->
+        <menuitem
+            id="menu_treatment_root"
+            name="Treatment"
+            parent="clinic_root_menu"
+            sequence="20"
+        />
+    </data>
+</odoo>
