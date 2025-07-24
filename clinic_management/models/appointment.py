@@ -6,7 +6,7 @@ class DentalAppointment(models.Model):
     _description = 'Dental Appointment'
 
     # General Info
-    patient_id = fields.Many2one('res.partner', string='Patient')
+    patient_id = fields.Many2one('clinic.patient', string='Patient')
     patient_type = fields.Selection([
         ('new', 'New Patient'),
         ('existing', 'Existing Patient')

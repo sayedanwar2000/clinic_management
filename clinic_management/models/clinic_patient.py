@@ -29,6 +29,12 @@ class ClinicPatient(models.Model):
     insurance_company_id = fields.Many2one('res.partner', string='Insurance Company')
     insurance_number = fields.Char(string='Insurance Number')
     active = fields.Boolean(string='Active', default=True)
+    street = fields.Char(string="Street")
+    street2 = fields.Char(string="Street2")
+    city = fields.Char(string="City")
+    state_id = fields.Many2one("res.country.state", string="State")
+    zip = fields.Char(string="ZIP")
+    country_id = fields.Many2one('res.country', string="Country")
 
     @api.depends('birth_date')
     def _compute_age(self):
