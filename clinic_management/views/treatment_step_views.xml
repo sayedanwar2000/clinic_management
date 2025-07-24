@@ -1,0 +1,66 @@
+<odoo>
+    <!-- ================================ -->
+    <!--      Form View: Treatment Step   -->
+    <!-- ================================ -->
+    <record id="view_treatment_step_form" model="ir.ui.view">
+        <field name="name">treatment.step.form</field>
+        <field name="model">treatment.step</field>
+        <field name="arch" type="xml">
+            <form string="Treatment Step" class="o_form_full_width">
+                <sheet>
+                    <header>
+                        <field name="progress" widget="statusbar"/>
+                    </header>
+                    <group string="Step Details" >
+                        <field name="plan_id"/>
+                        <field name="name"/>
+                        <field name="date"/>
+                    </group>
+                    <group string="Notes">
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ================================ -->
+    <!--      List View: Treatment Step   -->
+    <!-- ================================ -->
+    <record id="view_treatment_step_list" model="ir.ui.view">
+        <field name="name">treatment.step.list</field>
+        <field name="model">treatment.step</field>
+        <field name="arch" type="xml">
+            <list string="Treatment Steps">
+                <field name="plan_id"/>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="progress"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ================================ -->
+    <!--          Action Window           -->
+    <!-- ================================ -->
+    <record id="action_treatment_step" model="ir.actions.act_window">
+        <field name="name">Treatment Steps</field>
+        <field name="res_model">treatment.step</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Define and track the steps for each patient's treatment plan.
+            </p>
+        </field>
+    </record>
+
+    <!-- ================================ -->
+    <!--             Menu Item            -->
+    <!-- ================================ -->
+    <menuitem
+        id="menu_treatment_steps"
+        name="Treatment Steps"
+        parent="menu_treatment_root"
+        action="action_treatment_step"
+        sequence="20"/>
+</odoo>
