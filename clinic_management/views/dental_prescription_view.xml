@@ -1,0 +1,47 @@
+<odoo>
+    <record id="view_dental_prescription_form" model="ir.ui.view">
+        <field name="name">dental.prescription.form</field>
+        <field name="model">dental.prescription</field>
+        <field name="arch" type="xml">
+            <form string="Dental Prescription">
+                <group>
+                    <field name="case_id"/>
+                    <field name="patient_id" readonly="1"/>
+                    <field name="dentist_id"/>
+                     <field name="date"/>
+                </group>
+
+                <notebook>
+                    <page string="Medicine">
+                        <group>
+                            <field name="medicine"/>
+                            <field name="medicine_type"/>
+                            <field name="dose"/>
+                            <field name="frequency"/>
+                            <field name="duration"/>
+                            <field name="notes"/>
+                        </group>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_dental_prescription_tree" model="ir.ui.view">
+        <field name="name">dental.prescription.tree</field>
+        <field name="model">dental.prescription</field>
+        <field name="arch" type="xml">
+            <list string="Prescriptions">
+                <field name="case_id"/>
+                <field name="patient_id"/>
+                <field name="dentist_id"/>
+                <field name="medicine"/>
+                <field name="medicine_type"/>
+                <field name="dose"/>
+                <field name="frequency"/>
+                <field name="duration"/>
+            </list>
+        </field>
+    </record>
+
+</odoo>

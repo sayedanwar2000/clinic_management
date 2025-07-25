@@ -1,0 +1,105 @@
+<odoo>
+
+    <record id="view_dental_case_form" model="ir.ui.view">
+        <field name="name">dental.case.form</field>
+        <field name="model">dental.case</field>
+        <field name="arch" type="xml">
+            <form string="Dental Case">
+                <header>
+                    <button name="action_set_diagnosis" type="object" string="Move to Diagnosis" class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_set_treatment" type="object" string="Move to Treatment" class="btn-primary"
+                            invisible="state != 'diagnosis'"/>
+                    <button name="action_open_add_diagnosis_wizard" type="object" string="Add Diagnosis"
+                            class="btn-primary"
+                            invisible="state in ['draft','done']"/>
+                    <button name="action_create_prescription_view" type="action" string="Add Prescription"
+                            class="btn-primary"
+                            invisible="state in ['draft','done']"/>
+                    <button name="action_create_treatment_view" type="action" string="Add Treatment"
+                            class="btn-primary"
+                            invisible="state in ['draft','done']"/>
+                    <!--<button name="action_confirm" type="object" string="Add Prescription" class="btn-primary"
+                            invisible="state == 'draft'"/>
+                    <button name="action_confirm" type="object" string="Add Treatment" class="btn-primary"
+                            invisible="state != 'treatment'"/>-->
+                    <button name="action_set_done" type="object" string="Done" class="btn-primary"
+                            invisible="state != 'treatment'"/>
+                    <button name="action_set_cancelled" type="object" string="Cancel" class="btn-secondary"
+                            invisible="state == 'done'"/>
+                    <field name="state" widget="statusbar" optional="{'clickable' : 1}"/>
+                </header>
+                <sheet>
+                    <!-- Smart Button -->
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(action_open_diagnosis_tree_view)d"
+                                type="action"
+                                class="oe_stat_button"
+                                icon="fa-briefcase"
+                                invisible="diagnosis_ids == False">
+                            <field name="diagnosis_ids" widget="statinfo" string="Dental Cases"/>
+                        </button>
+                    </div>
+                    <!-- Sequence Number -->
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Patient Info">
+                            <field name="patient_type"/>
+                            <field name="patient_name"/>
+                            <field name="age"/>
+                        </group>
+                        <group string="Appointment Details">
+                            <field name="appointment_time"/>
+                            <field name="dentist_id"/>
+                        </group>
+                        <group string="Contact">
+                            <field name="phone"/>
+                            <field name="email"/>
+                        </group>
+                        <group string="Address Information">
+                            <field name="country_id"/>
+                            <field name="state_id"/>
+                            <field name="city"/>
+                            <field name="street"/>
+                            <field name="street2"/>
+                            <field name="zip"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Diagnoses">
+                            <field name="diagnosis_ids">
+                                <list>
+                                    <field name="diagnosis_test"/>
+                                    <field name="test_date"/>
+                                    <field name="test_result"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_dental_case_list" model="ir.ui.view">
+        <field name="name">dental.case.list</field>
+        <field name="model">dental.case</field>
+        <field name="arch" type="xml">
+            <list string="Dental Cases">
+                <field name="name"/>
+                <field name="patient_name"/>
+                <field name="appointment_time"/>
+                <field name="dentist_id"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+</odoo>

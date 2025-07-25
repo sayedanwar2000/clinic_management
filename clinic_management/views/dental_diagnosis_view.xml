@@ -1,0 +1,52 @@
+<odoo>
+    <!-- Tree View -->
+    <record id="view_dental_diagnosis_tree" model="ir.ui.view">
+        <field name="name">dental.diagnosis.tree</field>
+        <field name="model">dental.diagnosis</field>
+        <field name="arch" type="xml">
+            <list string="Diagnoses">
+                <field name="reference"/>
+                <field name="test_date"/>
+                <field name="dentist_id"/>
+                <field name="patient_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_dental_diagnosis_form" model="ir.ui.view">
+        <field name="name">dental.diagnosis.form</field>
+        <field name="model">dental.diagnosis</field>
+        <field name="arch" type="xml">
+            <form string="Diagnosis">
+                <header>
+                    <button name="action_set_done" type="object" string="Done" class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_set_cancelled" type="object" string="Cancel" class="btn-secondary"
+                            invisible="state == 'done'"/>
+                    <field name="state" widget="statusbar" optional="{'clickable' : 1}"/>
+                </header>
+                <sheet>
+                    <!-- Sequence Number -->
+                    <div class="oe_title">
+                        <h1>
+                            <field name="reference" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="diagnosis_test"/>
+                            <field name="test_result"/>
+                        </group>
+                        <group>
+                            <field name="test_date"/>
+                            <field name="patient_id"/>
+                            <field name="dentist_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

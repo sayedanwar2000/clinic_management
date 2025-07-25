@@ -9,7 +9,7 @@
         https://www.linkedin.com/in/sayed-anwar-3485081b2/
         https://www.linkedin.com/in/bassant-abdelraouf-04a1b0231/
         """,
-    'depends': ['base', 'mail', 'account', 'stock', 'hr'],
+    'depends': ['base', 'mail', 'account', 'stock', 'purchase', 'hr', 'sale'],
     'description': """
         This module provides a complete clinic management solution including:
         
@@ -26,11 +26,22 @@
         """,
     'data': [
         'security/ir.model.access.csv',
+        'security/security.xml',
+        'data/sequence.xml',
+        'data/low_stock_cron.xml',
+        'views/actions.xml',
         'views/base_menu.xml',
-        'views/medical_treatment_plan_views.xml',
-        'views/clinic_patient_views.xml',
-        'views/treatment_step_views.xml',
-
+        'views/dental_appointment_view.xml',
+        'views/dental_case_view.xml',
+        'views/dental_diagnosis_view.xml',
+        'views/dental_prescription_view.xml',
+        'views/product_product_view.xml',
+        'views/medical_treatment_plan_view.xml',
+        'views/clinic_patient_view.xml',
+        'views/treatment_step_view.xml',
+        'wizards/dental_diagnosis_wizard_view.xml',
+        'wizards/dental_prescription_wizard_view.xml',
+        'wizards/dental_treatment_wizard_view.xml',
     ],
     'installable': True,
     'application': True,

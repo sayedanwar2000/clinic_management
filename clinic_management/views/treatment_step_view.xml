@@ -1,0 +1,44 @@
+<odoo>
+    <!-- ================================ -->
+    <!--      Form View: Treatment Step   -->
+    <!-- ================================ -->
+    <record id="view_treatment_step_form" model="ir.ui.view">
+        <field name="name">treatment.step.form</field>
+        <field name="model">treatment.step</field>
+        <field name="arch" type="xml">
+            <form string="Treatment Step" class="o_form_full_width">
+                <sheet>
+                    <header>
+                        <field name="progress" widget="statusbar"/>
+                    </header>
+                    <group string="Step Details" >
+                        <field name="plan_id"/>
+                        <field name="name"/>
+                        <field name="date"/>
+                    </group>
+                    <group string="Notes">
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ================================ -->
+    <!--      List View: Treatment Step   -->
+    <!-- ================================ -->
+    <record id="view_treatment_step_list" model="ir.ui.view">
+        <field name="name">treatment.step.list</field>
+        <field name="model">treatment.step</field>
+        <field name="arch" type="xml">
+            <list string="Treatment Steps">
+                <field name="plan_id"/>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="progress"/>
+            </list>
+        </field>
+    </record>
+
+
+</odoo>

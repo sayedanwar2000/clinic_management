@@ -1,0 +1,101 @@
+<odoo>
+    <!-- ======================== -->
+    <!--     Form View: Patient   -->
+    <!-- ======================== -->
+    <record id="view_clinic_patient_form" model="ir.ui.view">
+        <field name="name">clinic.patient.form</field>
+        <field name="model">clinic.patient</field>
+        <field name="arch" type="xml">
+            <form string="Patient" class="o_form_full_width">
+                <sheet>
+                    <group>
+                        <group string="Basic Information">
+                            <field name="name"/>
+                            <field name="gender"/>
+                            <field name="birth_date"/>
+                            <field name="age" readonly="1"/>
+                        </group>
+                        <group string="Image">
+                            <field name="image_1920" widget="image" class="oe_avatar"/>
+                        </group>
+                        <group string="Address Information">
+                            <field name="country_id"/>
+                            <field name="state_id"/>
+                            <field name="city"/>
+                            <field name="street"/>
+                            <field name="street2"/>
+                            <field name="zip"/>
+                        </group>
+                        <group string="Contact">
+                            <field name="phone"/>
+                            <field name="email"/>
+                        </group>
+                    </group>
+
+                    <group>
+                        <group string="Medical Info">
+                            <field name="blood_type"/>
+                            <field name="allergies"/>
+                            <field name="medical_history"/>
+                            <field name="current_conditions"/>
+                        </group>
+                        <group string="Insurance">
+                            <field name="insurance_company_id"/>
+                            <field name="insurance_number"/>
+                        </group>
+                        <group string="Activation">
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Prescriptions">
+                            <!-- <field name="prescription_ids"/> -->
+                        </page>
+                        <page string="Appointments">
+                            <field name="appointment_ids">
+                                <list string="Appointments" editable="bottom">
+                                    <field name="appointment_date"/>
+                                    <field name="dentist_id"/>
+                                    <field name="state"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Treatments">
+                            <field name="treatment_line_ids">
+                                <list editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="quantity"/>
+                                    <field name="price_unit"/>
+                                    <field name="subtotal"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Treatment Plans">
+                            <field name="treatment_plan_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ======================== -->
+    <!--     List View: Patient   -->
+    <!-- ======================== -->
+    <record id="view_clinic_patient_list" model="ir.ui.view">
+        <field name="name">clinic.patient.list</field>
+        <field name="model">clinic.patient</field>
+        <field name="arch" type="xml">
+            <list string="Patients">
+                <field name="name"/>
+                <field name="gender"/>
+                <field name="blood_type"/>
+                <field name="age"/>
+                <field name="phone"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+</odoo>

@@ -10,16 +10,5 @@
             <field name="active">True</field>
         </record>
 
-        <record id="ir_cron_test_low_stock_30s" model="ir.cron">
-            <field name="name">[TEST] Low Stock Every 30 Seconds</field>
-            <field name="model_id" ref="model_product_product"/>
-            <field name="state">code</field>
-            <field name="code">model.trigger_low_stock_action()</field>
-            <field name="interval_number">1</field>
-            <field name="interval_type">minutes</field>
-            <field name="active">True</field>
-        </record>
-
-
     </data>
 </odoo>

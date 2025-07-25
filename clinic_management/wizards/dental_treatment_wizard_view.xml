@@ -1,0 +1,40 @@
+<odoo>
+    <record id="view_treatment_wizard_form" model="ir.ui.view">
+        <field name="name">treatment.wizard.form</field>
+        <field name="model">treatment.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Create Treatment">
+                <group>
+                    <field name="patient_id"/>
+                    <field name="date"/>
+                    <field name="tooth"/>
+                    <field name="dentist_id"/>
+                    <field name="treatment_charge" readonly="1"/>
+                </group>
+                <notebook>
+                    <page string="Treatments">
+                        <field name="treatment_line_ids">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="charge"/>
+                                <field name="remarks"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+                <field name="description"/>
+                <footer>
+                    <button string="Create" type="object" name="action_create_treatments" class="btn-primary"/>
+                    <button string="Close Window" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_treatment_wizard" model="ir.actions.act_window">
+        <field name="name">Create Treatment</field>
+        <field name="res_model">treatment.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

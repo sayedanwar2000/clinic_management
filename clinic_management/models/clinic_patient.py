@@ -25,11 +25,17 @@ class ClinicPatient(models.Model):
     current_conditions = fields.Text(string='Current Conditions')
     #prescription_ids = fields.One2many('clinic.prescription', 'patient_id', string='Prescriptions')
     treatment_plan_ids = fields.One2many('medical.treatment.plan', 'patient_id', string='Treatment Plans')
-    #appointment_ids = fields.One2many('clinic.appointment', 'patient_id', string='Appointments')
+    appointment_ids = fields.One2many('dental.appointment','patient_id',string="Appointments")
     insurance_company_id = fields.Many2one('res.partner', string='Insurance Company')
+    treatment_line_ids = fields.One2many(comodel_name='treatment.line',inverse_name='patient_id',string="Treatment Lines",)
     insurance_number = fields.Char(string='Insurance Number')
     active = fields.Boolean(string='Active', default=True)
-
+    street = fields.Char(string="Street")
+    street2 = fields.Char(string="Street2")
+    city = fields.Char(string="City")
+    state_id = fields.Many2one("res.country.state", string="State")
+    zip = fields.Char(string="ZIP")
+    country_id = fields.Many2one('res.country', string="Country")
     @api.depends('birth_date')
     def _compute_age(self):
         for patient in self:
