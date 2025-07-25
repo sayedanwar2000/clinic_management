@@ -58,4 +58,41 @@
     </record>
 
 
+    <!-- ======================================== -->
+    <!--          Action  Dental Case             -->
+    <!-- ======================================== -->
+    <record id="action_dental_case" model="ir.actions.act_window">
+        <field name="name">Dental Case</field>
+        <field name="res_model">dental.case</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Define and track the dental case for each patient.
+            </p>
+        </field>
+    </record>
+
+
+    <!-- ==================================================== -->
+    <!--          Action Smart Button Dental Case             -->
+    <!-- ==================================================== -->
+    <record id="action_dental_case_tree_view" model="ir.actions.act_window">
+        <field name="name">Dental Cases</field>
+        <field name="res_model">dental.case</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('appointment_id', '=', active_id)]</field>
+    </record>
+
+
+    <!-- ==================================================== -->
+    <!--          Action Smart Button Dental Diagnosis        -->
+    <!-- ==================================================== -->
+    <record id="action_open_diagnosis_tree_view" model="ir.actions.act_window">
+        <field name="name">Diagnoses</field>
+        <field name="res_model">dental.diagnosis</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('case_id', '=', active_id)]</field>
+    </record>
+
+
 </odoo>

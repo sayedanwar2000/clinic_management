@@ -36,6 +36,19 @@ class ClinicPatient(models.Model):
     zip = fields.Char(string="ZIP")
     country_id = fields.Many2one('res.country', string="Country")
 
+    treatment_line_ids = fields.One2many(
+        comodel_name='treatment.line',
+        inverse_name='patient_id',
+        string="Treatment Lines",
+    )
+
+
+    appointment_ids = fields.One2many(
+        'dental.appointment',
+        'patient_id',
+        string="Appointments"
+    )
+
     @api.depends('birth_date')
     def _compute_age(self):
         for patient in self:

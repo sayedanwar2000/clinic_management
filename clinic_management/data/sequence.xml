@@ -7,5 +7,21 @@
             <field name="padding">5</field>
             <field name="number_next">1</field>
         </record>
+
+        <record id="seq_dental_case" model="ir.sequence">
+            <field name="name">Dental Case</field>
+            <field name="code">dental.case</field>
+            <field name="prefix">DC/</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+        </record>
+
+        <record id="seq_dental_diagnosis" model="ir.sequence">
+            <field name="name">Dental Diagnosis</field>
+            <field name="code">dental.diagnosis</field>
+            <field name="prefix">DI/</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+        </record>
     </data>
 </odoo>

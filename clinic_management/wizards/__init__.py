@@ -1,0 +1,1 @@
+from . import dental_diagnosis_wizard
