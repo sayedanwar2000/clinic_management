@@ -1,7 +1,6 @@
 <odoo>
     <data>
         <!-- Root Menu -->
-
         <menuitem id="menu_dental_appointments_root" name="Dental Clinic" sequence="1"/>
 
         <!-- Submenu under Root -->
@@ -10,11 +9,10 @@
                 name="Medical"
                 parent="menu_dental_appointments_root"
                 sequence="10"
-
+        />
 
         <!-- Submenu under Root -->
         <menuitem
-
                 id="menu_treatment_root"
                 name="Treatment"
                 parent="menu_dental_appointments_root"
@@ -58,6 +56,16 @@
                 parent="menu_treatment_root"
                 action="action_treatment_step"
                 sequence="20"/>
+
+        <!-- =========================================== -->
+        <!--             Menu Dental Cases               -->
+        <!-- =========================================== -->
+        <menuitem
+                id="menu_dental_case"
+                name="Dental Cases"
+                parent="menu_dental_appointments_root"
+                action="action_dental_case"
+                sequence="7"/>
 
     </data>
 </odoo>

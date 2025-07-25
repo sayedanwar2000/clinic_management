@@ -18,7 +18,6 @@
                         <group string="Image">
                             <field name="image_1920" widget="image" class="oe_avatar"/>
                         </group>
-                      
                         <group string="Address Information">
                             <field name="country_id"/>
                             <field name="state_id"/>
@@ -27,7 +26,6 @@
                             <field name="street2"/>
                             <field name="zip"/>
                         </group>
-
                         <group string="Contact">
                             <field name="phone"/>
                             <field name="email"/>
@@ -45,18 +43,35 @@
                             <field name="insurance_company_id"/>
                             <field name="insurance_number"/>
                         </group>
-                        <group  string="Activation">
+                        <group string="Activation">
                             <field name="active"/>
                         </group>
                     </group>
                     <notebook>
                         <!-- Add pages only when corresponding fields are ready -->
                         <page string="Prescriptions">
-                             <!-- <field name="prescription_ids"/> -->
+                            <!-- <field name="prescription_ids"/> -->
                         </page>
                         <page string="Appointments">
-                             <!-- <field name="appointment_ids"/> -->
+                            <field name="appointment_ids">
+                                <list string="Appointments" editable="bottom">
+                                    <field name="appointment_date"/>
+                                    <field name="dentist_id"/>
+                                    <field name="state"/>
+                                </list>
+                            </field>
                         </page>
+                        <page string="Treatments">
+                            <field name="treatment_line_ids">
+                                <list editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="quantity"/>
+                                    <field name="price_unit"/>
+                                    <field name="subtotal"/>
+                                </list>
+                            </field>
+                        </page>
+
                         <page string="Treatment Plans">
                             <field name="treatment_plan_ids"/>
                         </page>

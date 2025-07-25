@@ -17,17 +17,37 @@
         <field name="model">dental.appointment</field>
         <field name="arch" type="xml">
             <form string="Appointments">
+
+
                 <!-- Header -->
                 <header>
                     <button name="action_confirm" type="object" string="Confirm" class="btn-primary"
                             invisible="state != 'draft'"/>
+
                     <button name="action_cancel" type="object" string="Cancel" class="btn-secondary"
                             invisible="state != 'draft'"/>
+
+                    <button name="action_create_dental_case"
+                            type="object"
+                            string="Create Dental Case"
+                            class="oe_highlight"
+                            invisible="state!='confirmed'"/>
+
                     <field name="state" widget="statusbar" optional="{'clickable' : 1}"/>
                 </header>
 
                 <!-- Main Body -->
                 <sheet>
+                    <!-- Smart Button -->
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(action_dental_case_tree_view)d"
+                                type="action"
+                                class="oe_stat_button"
+                                icon="fa-briefcase"
+                                invisible="case_ids==False">
+                            <field name="case_ids" widget="statinfo" string="Dental Cases"/>
+                        </button>
+                    </div>
                     <!-- Sequence Number -->
                     <div class="oe_title">
                         <h1>
@@ -68,9 +88,6 @@
             </form>
         </field>
     </record>
-
-
-
 
 
 </odoo>

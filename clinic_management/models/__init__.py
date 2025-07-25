@@ -3,3 +3,6 @@ from . import product_product
 from . import clinic_patient
 from . import medical_treatment_plan
 from . import treatment_step
+from . import treatment_line
+from . import dental_case
+from . import dental_diagnosis
