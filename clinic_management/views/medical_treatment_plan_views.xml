@@ -1,0 +1,68 @@
+<odoo>
+    <!-- ================================ -->
+    <!--      Form View: Treatment Plan   -->
+    <!-- ================================ -->
+    <record id="view_medical_treatment_plan_form" model="ir.ui.view">
+        <field name="name">medical.treatment.plan.form</field>
+        <field name="model">medical.treatment.plan</field>
+        <field name="arch" type="xml">
+            <form string="Treatment Plan" class="o_form_full_width">
+                <sheet>
+                    <header>
+                        <field name="status" widget="statusbar"/>
+                    </header>
+                    <group>
+                        !-- === General Info === -->
+                        <group string="General Information">
+                            <field name="patient_id"/>
+                            <field name="dentist_id"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                        <!-- === Diagnosis & Notes === -->
+                        <group string="Diagnosis And Attachments">
+                            <field name="diagnosis"/>
+                            <field name="notes"/>
+                            <field name="attachment_ids" widget="many2many_binary"/>
+                        </group>
+                    </group>
+
+                    <!-- === Notebook Tabs === -->
+                    <notebook>
+                        <page string="Treatment Steps">
+                            <field name="treatment_steps_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="date"/>
+                                    <field name="progress"/>
+                                    <field name="notes"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ================================ -->
+    <!--      List View: Treatment Plan   -->
+    <!-- ================================ -->
+    <record id="view_medical_treatment_plan_list" model="ir.ui.view">
+        <field name="name">medical.treatment.plan.list</field>
+        <field name="model">medical.treatment.plan</field>
+        <field name="arch" type="xml">
+            <list string="Treatment Plans">
+                <field name="patient_id"/>
+                <field name="dentist_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="status"/>
+            </list>
+        </field>
+    </record>
+
+
+
+
+</odoo>

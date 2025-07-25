@@ -1,0 +1,17 @@
+<odoo>
+  <record id="view_product_form_inherit_last_purchase" model="ir.ui.view">
+    <field name="name">product.product.form.last.purchase.inherit</field>
+    <field name="model">product.product</field>
+    <field name="inherit_id" ref="product.product_normal_form_view" />
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='type']" position="after">
+        <field name="product_type_clinic"/>
+        <field name="qty_available"/>
+        <field name="min_quantity"/>
+        <field name="unit_of_measure"/>
+        <field name="supplier_id"/>
+        <field name="last_purchase_date"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

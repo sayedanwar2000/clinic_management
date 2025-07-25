@@ -1,0 +1,80 @@
+<odoo>
+    <data>
+        <!-- Root Menu -->
+        <menuitem id="menu_dental_appointments_root" name="Dental Clinic" sequence="1"/>
+
+        <!-- Submenu under Root -->
+        <menuitem
+                id="menu_medical_root"
+                name="Medical"
+                parent="menu_dental_appointments_root"
+                sequence="10"
+        />
+
+        <!-- Submenu under Root -->
+        <menuitem
+                id="menu_treatment_root"
+                name="Treatment"
+                parent="menu_dental_appointments_root"
+                sequence="20"
+        />
+
+        <!-- ======================================== -->
+        <!--        Menu Item Clinic Patient          -->
+        <!-- ======================================== -->
+        <menuitem
+                id="menu_patients"
+                name="Patients"
+                parent="menu_medical_root"
+                action="action_clinic_patient"
+                sequence="10"/>
+
+        <!-- =============================== -->
+        <!--        Menu Appointment         -->
+        <!-- =============================== -->
+        <menuitem id="menu_dental_appointments" name="Appointments"
+                  parent="menu_dental_appointments_root"
+                  action="action_dental_appointment_list"
+                  sequence="1"/>
+
+        <!-- =================================================== -->
+        <!--            Menu Medical Treatment Plan              -->
+        <!-- =================================================== -->
+        <menuitem
+                id="menu_treatment_plans"
+                name="Treatment Plans"
+                parent="menu_treatment_root"
+                action="action_medical_treatment_plan"
+                sequence="10"/>
+
+        <!-- =========================================== -->
+        <!--             Menu Treatment Step             -->
+        <!-- =========================================== -->
+        <menuitem
+                id="menu_treatment_steps"
+                name="Treatment Steps"
+                parent="menu_treatment_root"
+                action="action_treatment_step"
+                sequence="20"/>
+
+        <!-- =========================================== -->
+        <!--             Menu Dental Cases               -->
+        <!-- =========================================== -->
+        <menuitem
+                id="menu_dental_case"
+                name="Dental Cases"
+                parent="menu_dental_appointments_root"
+                action="action_dental_case"
+                sequence="7"/>
+
+        <!-- =========================================== -->
+        <!--             Menu Insurance Company          -->
+        <!-- =========================================== -->
+        <menuitem id="menu_dental_insurance_claim"
+                name="Insurance Claims"
+                parent="menu_dental_appointments_root"
+                action="action_dental_insurance_claim"
+                sequence="30"/>
+
+    </data>
+</odoo>

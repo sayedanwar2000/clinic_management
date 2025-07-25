@@ -1,0 +1,93 @@
+<odoo>
+    <record id="view_dental_appointment_tree" model="ir.ui.view">
+        <field name="name">dental.appointment.tree</field>
+        <field name="model">dental.appointment</field>
+        <field name="arch" type="xml">
+            <list string="Appointments">
+                <field name="patient_id"/>
+                <field name="dentist_id"/>
+                <field name="appointment_date"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_dental_appointment_form" model="ir.ui.view">
+        <field name="name">dental.appointment.form</field>
+        <field name="model">dental.appointment</field>
+        <field name="arch" type="xml">
+            <form string="Appointments">
+
+
+                <!-- Header -->
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm" class="btn-primary"
+                            invisible="state != 'draft'"/>
+
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary"
+                            invisible="state != 'draft'"/>
+
+                    <button name="action_create_dental_case"
+                            type="object"
+                            string="Create Dental Case"
+                            class="oe_highlight"
+                            invisible="state!='confirmed'"/>
+
+                    <field name="state" widget="statusbar" optional="{'clickable' : 1}"/>
+                </header>
+
+                <!-- Main Body -->
+                <sheet>
+                    <!-- Smart Button -->
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(action_dental_case_tree_view)d"
+                                type="action"
+                                class="oe_stat_button"
+                                icon="fa-briefcase"
+                                invisible="case_ids==False">
+                            <field name="case_ids" widget="statinfo" string="Dental Cases"/>
+                        </button>
+                    </div>
+                    <!-- Sequence Number -->
+                    <div class="oe_title">
+                        <h1>
+                            <field name="reference" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="patient_type"/>
+                            <field name="patient_id"/>
+                            <field name="age"/>
+                            <field name="phone"/>
+                            <field name="email"/>
+                        </group>
+                        <group>
+                            <field name="appointment_date"/>
+                            <field name="dentist_id"/>
+                            <field name="street"/>
+                            <field name="street2"/>
+                            <field name="city"/>
+                            <field name="state_id"/>
+                            <field name="zip"/>
+                            <field name="country_id"/>
+                        </group>
+                    </group>
+
+                    <!-- Tabs -->
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Other Info">
+                            <field name="other_info"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>
