@@ -67,5 +67,14 @@
                 action="action_dental_case"
                 sequence="7"/>
 
+        <!-- =========================================== -->
+        <!--             Menu Insurance Company          -->
+        <!-- =========================================== -->
+        <menuitem id="menu_dental_insurance_claim"
+                name="Insurance Claims"
+                parent="menu_dental_appointments_root"
+                action="action_dental_insurance_claim"
+                sequence="30"/>
+
     </data>
 </odoo>

@@ -6,3 +6,6 @@ from . import treatment_step
 from . import treatment_line
 from . import dental_case
 from . import dental_diagnosis
+from . import account_move
+from . import res_partner
+from . import dental_insurance_claim

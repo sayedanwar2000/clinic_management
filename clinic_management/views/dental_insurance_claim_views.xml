@@ -1,0 +1,63 @@
+<odoo>
+
+    <record id="view_dental_insurance_claim_list" model="ir.ui.view">
+        <field name="name">dental.insurance.claim.list</field>
+        <field name="model">dental.insurance.claim</field>
+        <field name="arch" type="xml">
+            <list string="Dental Insurance Claims">
+                <field name="name"/>
+                <field name="invoice_id"/>
+                <field name="patient_id"/>
+                <field name="insurance_company_id"/>
+                <field name="claim_date"/>
+                <field name="amount_claimed" widget="monetary"/>
+                <field name="amount_reimbursed" widget="monetary"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_dental_insurance_claim_form" model="ir.ui.view">
+        <field name="name">dental.insurance.claim.form</field>
+        <field name="model">dental.insurance.claim</field>
+        <field name="arch" type="xml">
+            <form string="Dental Insurance Claim">
+                <header>
+                    <button name="action_submit_claim" type="object" string="Submit Claim" class="oe_highlight" invisible="state != 'draft'" help="Submit the claim to the insurance company and await their decision."/>
+                    
+                    <button name="action_mark_reimbursed" type="object" string="Mark as Reimbursed" class="oe_highlight" invisible="state != 'waiting'" help="Confirm that the insurance company has reimbursed the claimed amount."/>
+                    <button name="action_mark_rejected" type="object" string="Mark as Rejected" invisible="state != 'waiting'" help="Indicate that the insurance company has rejected this claim."/>
+                    
+                    <button name="action_cancel_claim" type="object" string="Cancel Claim" invisible="state in ('reimbursed', 'rejected', 'cancelled')"/>
+                    
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,waiting,reimbursed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" default_focus="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="invoice_id"/>
+                            <field name="patient_id"/>
+                            <field name="insurance_company_id"/>
+                        </group>
+                        <group>
+                            <field name="claim_date"/>
+                            <field name="amount_claimed" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            <field name="insurance_coverage_percentage"/>
+                            <field name="amount_reimbursed" widget="monetary" options="{'currency_field': 'currency_id'}" readonly="1"/> <field name="currency_id" invisible="1"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+
+</odoo>

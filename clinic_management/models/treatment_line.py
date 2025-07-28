@@ -5,6 +5,7 @@ class ClinicServiceLine(models.Model):
     _name = 'treatment.line'
     _description = 'Treatment Line'
 
+    case_id = fields.Many2one('dental.case', string='Dental Case')
     patient_id = fields.Many2one('clinic.patient', string="Patient")
     product_id = fields.Many2one('product.product', string="Treatment", domain=[('sale_ok', '=', True)], required=True)
     quantity = fields.Float(string="Quantity", default=1.0)
@@ -21,3 +22,10 @@ class ClinicServiceLine(models.Model):
         for line in self:
             if line.product_id:
                 line.price_unit = line.product_id.lst_price
+
+    @api.onchange('case_id')
+    def _onchange_case_id(self):
+        for line in self:
+            if line.case_id and line.case_id.patient_id:
+                line.patient_id = line.case_id.patient_id
+

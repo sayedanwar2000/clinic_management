@@ -21,16 +21,28 @@
                             invisible="state != 'treatment'"/>
                     <button name="action_set_cancelled" type="object" string="Cancel" class="btn-secondary"
                             invisible="state == 'done'"/>
+
+                    <button name="action_create_invoice" type="object" string="Create Invoice" class="oe_highlight"
+                            invisible="state != 'done'"/>
+
                     <field name="state" widget="statusbar" optional="{'clickable' : 1}"/>
                 </header>
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button"
+                                name="action_open_invoice_wizard"
+                                type="object"
+                                icon="fa-money"
+                                invisible="invoice_count == 0">
+                            <field name="invoice_count" widget="statinfo" string="Invoices"/>
+                        </button>
+                    </div>
                     <!-- Smart Button -->
                     <div class="oe_button_box" name="button_box">
                         <button name="%(action_open_diagnosis_tree_view)d"
                                 type="action"
                                 class="oe_stat_button"
-                                icon="fa-briefcase"
-                                invisible="diagnosis_ids == False">
+                                icon="fa-briefcase">
                             <field name="diagnosis_ids" widget="statinfo" string="Dental Cases"/>
                         </button>
                     </div>
@@ -43,7 +55,7 @@
                     <group>
                         <group string="Patient Info">
                             <field name="patient_type"/>
-                            <field name="patient_name"/>
+                            <field name="patient_id"/>
                             <field name="age"/>
                         </group>
                         <group string="Appointment Details">
@@ -77,6 +89,26 @@
                                 </list>
                             </field>
                         </page>
+                        <page string="Treatments" invisible="state in ['draft', 'diagnosis' ]">
+                            <field name="treatment_line_ids">
+                                <list editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="quantity"/>
+                                    <field name="price_unit"/>
+                                    <field name="subtotal"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Treatments Plan" invisible="state in ['draft', 'diagnosis']">
+                            <field name="treatment_plan_ids">
+                                <list editable="bottom">
+                                    <field name="start_date"/>
+                                    <field name="end_date"/>
+                                    <field name="status"/>
+                                    <field name="notes"/>
+                                </list>
+                            </field>
+                        </page>
                     </notebook>
                 </sheet>
             </form>
@@ -89,7 +121,7 @@
         <field name="arch" type="xml">
             <list string="Dental Cases">
                 <field name="name"/>
-                <field name="patient_name"/>
+                <field name="patient_id"/>
                 <field name="appointment_time"/>
                 <field name="dentist_id"/>
                 <field name="state"/>
