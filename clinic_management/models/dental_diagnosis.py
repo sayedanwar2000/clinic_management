@@ -11,7 +11,7 @@ class DentalDiagnosis(models.Model):
     test_date = fields.Datetime(string="Test Date", default=fields.Datetime.now)
     test_result = fields.Text(string="Test Result")
     dentist_id = fields.Many2one('res.users', string="Dentist", default=lambda self: self.env.user)
-    patient_id = fields.Char(related='case_id.patient_name', string="Patient", store=True)
+    patient_id = fields.Many2one('clinic.patient', related='case_id.patient_id', string="Patient", store=True)
     reference = fields.Char(string="Reference", readonly=True, copy=False, default='New')
     state = fields.Selection([
         ('draft', 'Draft'),

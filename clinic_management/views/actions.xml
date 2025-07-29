@@ -95,22 +95,13 @@
     </record>
 
     <!-- ==================================================== -->
-    <!--          Action Smart Button Dental Prescription        -->
+    <!--          Action Insurance Company                    -->
     <!-- ==================================================== -->
-    <record id="action_create_prescription_view" model="ir.actions.act_window">
-        <field name="name">Prescription</field>
-        <field name="res_model">dental.prescription</field>
+    <record id="action_dental_insurance_claim" model="ir.actions.act_window">
+        <field name="name">Insurance Claims</field>
+        <field name="res_model">dental.insurance.claim</field>
         <field name="view_mode">list,form</field>
-        <field name="domain">[('case_id', '=', active_id)]</field>
     </record>
 
-    <!-- ==================================================== -->
-    <!--          Action Smart Button Dental Treatment         -->
-    <!-- ==================================================== -->
-    <record id="action_create_treatment_view" model="ir.actions.act_window">
-        <field name="name">Treatment</field>
-        <field name="res_model">dental.treatment</field>
-        <field name="view_mode">list,form</field>
-        <field name="domain">[('case_id', '=', active_id)]</field>
-    </record>
+
 </odoo>

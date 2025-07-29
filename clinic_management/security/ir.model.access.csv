@@ -6,8 +6,6 @@ access_treatment_step,access.treatment_step,model_treatment_step,,1,1,1,1
 access_treatment_line,access.treatment_line,model_treatment_line,,1,1,1,1
 access_dental_case,access.dental_case,model_dental_case,,1,1,1,1
 access_dental_diagnosis,access.dental_diagnosis,model_dental_diagnosis,,1,1,1,1
-access_dental_prescription,access.dental_prescription,model_dental_prescription,,1,1,1,1
-access_dental_treatment,access.dental_treatment,model_dental_treatment,,1,1,1,1
-access_dental_diagnosis_wizard,access.dental_diagnosis_wizard,model_dental_diagnosis_wizard,,1,1,1,1
-access_dental_prescription_wizard,access.dental_prescription_wizard,model_dental_prescription_wizard,,1,1,1,1
-access_dental_treatment_wizard,access.dental_treatment_wizard,model_dental_treatment_wizard,,1,1,1,1
+access_dental_invoice_wizard_user,dental.invoice.wizard.user,model_dental_invoice_wizard,,1,1,1,1
+access_dental_insurance_claim_user,dental.insurance.claim.user,model_dental_insurance_claim,,1,1,1,1
+access_dental_diagnosis_wizard,dental.diagnosis.wizard,model_dental_diagnosis_wizard,,1,1,1,1

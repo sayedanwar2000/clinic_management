@@ -71,7 +71,7 @@ class DentalAppointment(models.Model):
             self.env['dental.case'].create({
                 'appointment_id': appointment.id,
                 'patient_type': appointment.patient_type,
-                'patient_name': appointment.patient_id.name,
+                'patient_id': appointment.patient_id.id,
                 'age': appointment.age,
                 'street': appointment.street,
                 'street2': appointment.street2,
